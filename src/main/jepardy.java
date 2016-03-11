@@ -58,18 +58,18 @@ package main;
 			// 5. Add the quizPanel to the frame
 			frame.add(quizPanel);			
 			// 6. Use the createButton method to set the value of firstButton 
-		JButton firstbut = createButton("100") ;
+	 firstButton = createButton("100") ;
 		// 7. Add the firstButton to the quizPanel
 			quizPanel.add(firstButton);
 			// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 			
 			// 9. Use the secondButton variable to hold a button using the createButton method
-			JButton newsecbut = new JButton();
+		 secondButton = new JButton();
 			// 10. Add the secondButton to the quizPanel
 			quizPanel.add(secondButton);
 			// 11. Add action listeners to the buttons (2 lines of code)
-		firstbut.addActionListener(this);
-		newsecbut.addActionListener(this);
+		firstButton.addActionListener(this);
+		secondButton.addActionListener(this);
 
 			// 12. Fill in the actionPerformed() method below
 					
@@ -78,6 +78,7 @@ package main;
 			frame.add(makeScorePanel(), BorderLayout.NORTH);
 			frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height, Toolkit.getDefaultToolkit().getScreenSize().width);
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			
 		}
 
 		/*
@@ -93,7 +94,7 @@ package main;
 			// Create a new JButton
 			JButton secbut = new JButton();
 			// Set the text of the button to the dollarAmount
-			secbut.setText("200");
+			secbut.setText(dollarAmount);
 			// Increment the buttonCount (this should make the layout vertical)
 		buttonCount ++;
 			// Return your new button instead of the temporary button
@@ -103,13 +104,24 @@ package main;
 
 		public void actionPerformed(ActionEvent arg0) {
 			// Remove this temporary message:
-			JOptionPane.showMessageDialog(null,"pressed " + ((JButton)arg0.getSource()).getText() + " button");
 
 			// Use the method that plays the jeopardy theme music.
 
 			JButton buttonPressed = (JButton) arg0.getSource();
+			playJeopardyTheme();
 			// If the buttonPressed was the firstButton
-			
+			if (buttonPressed.equals(firstButton)){
+				askQuestion("How old is the moon?","4.47 billion years old",100);
+				
+			}
+			if (buttonPressed.equals(secondButton)){
+				askQuestion("how old is Nick?","16",200);
+				
+			}
+			if (buttonPressed.equals(thirdButton)){
+				askQuestion("how old is Nick?","16",200);
+				
+			}
 				// Call the askQuestion() method
 				
 				// Fill in the askQuestion() method. When you play the game, the score should change.
@@ -125,12 +137,14 @@ package main;
 		}
 
 		private void askQuestion(String question, String correctAnswer, int prizeMoney) {
-			// Remove this temporary message
-			JOptionPane.showMessageDialog(null, "this is where the question will be asked");
 			// Use a pop up to ask the user the question
-		
+		String question1 = JOptionPane.showInputDialog(question);
 			// If the answer is correct
-			
+			if(question1.equals(correctAnswer)){
+				score = score + prizeMoney;
+				updateScore();
+				JOptionPane.showMessageDialog(null, "corrrrect!");
+			}
 				// Increase the score by the prizeMoney
 				
 				// Call the updateScore() method
@@ -138,7 +152,52 @@ package main;
 				// Pop up a message to tell the user they were correct
 				
 			// Otherwise
-			
+			else{
+				score = score - prizeMoney;
+				updateScore();
+				JOptionPane.showMessageDialog(null, "wrong he needs some milk.");
+
+			}
+			String question2 = JOptionPane.showInputDialog(question);
+			// If the answer is correct
+			if(question2.equals(correctAnswer)){
+				score = score + prizeMoney;
+				updateScore();
+				JOptionPane.showMessageDialog(null, "corrrrect!");
+			}
+				// Increase the score by the prizeMoney
+				
+				// Call the updateScore() method
+				
+				// Pop up a message to tell the user they were correct
+				
+			// Otherwise
+			else{
+				score = score - prizeMoney;
+				updateScore();
+				JOptionPane.showMessageDialog(null, "wrong he needs some milk.");
+			}
+
+			String question3 = JOptionPane.showInputDialog(question);
+			// If the answer is correct
+			if(question3.equals(correctAnswer)){
+				score = score + prizeMoney;
+				updateScore();
+				JOptionPane.showMessageDialog(null, "corrrrect!");
+			}
+				// Increase the score by the prizeMoney
+				
+				// Call the updateScore() method
+				
+				// Pop up a message to tell the user they were correct
+				
+			// Otherwise
+			else{
+				score = score - prizeMoney;
+				updateScore();
+				JOptionPane.showMessageDialog(null, "wrong he needs some milk.");
+
+			}
 				// Decrement the score by the prizeMoney
 				
 				// Pop up a message to tell the user the correct answer

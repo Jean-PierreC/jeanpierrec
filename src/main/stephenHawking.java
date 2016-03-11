@@ -8,7 +8,7 @@ public class stephenHawking {
 
 		// String sent =
 		// JOptionPane.showInputDialog(null,"Write a funny sentence.");
-		speak("");
+		speak("dam daniel, back again with the white vans.");
 
 	}
 
