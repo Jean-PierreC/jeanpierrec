@@ -118,8 +118,9 @@ package main;
 				askQuestion("how old is Nick?","16",200);
 				
 			}
-			if (buttonPressed.equals(thirdButton)){
-				askQuestion("how old is Nick?","16",200);
+			
+			if (buttonPressed.equals(fourthButton)){
+				askQuestion(" In which regien is illegal to eat mince pies on Christmas Day?","UK",300);
 				
 			}
 				// Call the askQuestion() method
